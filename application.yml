@@ -1,0 +1,21 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+info:
+  author: Ruan K. Araújo Damacena
+  mail: ruanaraujo@email.com
+server:
+  port: ${PORT:9999}
+message: Mensagem generica
