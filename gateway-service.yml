@@ -9,13 +9,21 @@ spring:
         - id: catalogRoute
           uri: lb://CATALOG-SERVICE
           predicates:
-            - Path=/catalog/**
-#          filters:
-#            - name: SubscriptionFilter
+            - Path=/catalog-api/**
         - id: movieRoute
           uri: lb://MOVIE-SERVICE
           predicates:
-            - Path=/movie/**
+            - Path=/movie-api/**
+        - id: subscriptionRoute
+          uri: lb://SUBSCRIPTION-SERVICE
+          predicates:
+            - Path=/subscription/**
 #          filters:
-#            - AddRequestHeader=course-request-header, custom-course-request-header
-#            - AddResponseHeader=course-response-header, custom-course-response-header
+#            - name: SubscriptionFilter
+        - id: courseRoute
+          uri: lb://COURSE-SERVICE
+          predicates:
+            - Path=/course/**
+          filters:
+            - AddRequestHeader=course-request-header, custom-course-request-header
+            - AddResponseHeader=course-response-header, custom-course-response-header
